@@ -3,45 +3,45 @@ import { ArrowDownRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 pt-32 overflow-hidden">
-      <div className="container mx-auto">
-        <div className="flex flex-col gap-4">
+    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-24 py-20 overflow-hidden">
+      <div className="container mx-auto relative z-10">
+        <div className="flex flex-col gap-4 md:gap-6">
           <div className="flex items-center gap-4">
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: 80 }}
-              transition={{ duration: 1, ease: [0.77, 0, 0.175, 1] }}
-              className="h-[1px] bg-accent"
+              animate={{ width: 60 }}
+              transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
+              className="h-[1px] bg-accent/50"
             />
             <motion.span
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-xs font-mono uppercase tracking-[0.3em] text-accent"
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-[10px] font-mono uppercase tracking-[0.4em] text-accent/80"
             >
-              Full Stack & Blockchain
+              Full Stack & Blockchain Architect
             </motion.span>
           </div>
 
           <div className="relative">
-            <h1 className="editorial-title">
+            <h1 className="editorial-title text-gradient">
               <span className="text-reveal">
                 <motion.span
-                  initial={{ y: "100%" }}
+                  initial={{ y: "110%" }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 1, ease: [0.77, 0, 0.175, 1] }}
+                  transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
                   className="reveal-inner"
                 >
                   Architecting
                 </motion.span>
               </span>
               <br />
-              <span className="text-reveal ml-[10vw]">
+              <span className="text-reveal ml-[8vw]">
                 <motion.span
-                  initial={{ y: "100%" }}
+                  initial={{ y: "110%" }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 1, delay: 0.1, ease: [0.77, 0, 0.175, 1] }}
-                  className="reveal-inner text-accent"
+                  transition={{ duration: 1.2, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                  className="reveal-inner italic text-accent"
                 >
                   Digital
                 </motion.span>
@@ -49,9 +49,9 @@ export default function Hero() {
               <br />
               <span className="text-reveal">
                 <motion.span
-                  initial={{ y: "100%" }}
+                  initial={{ y: "110%" }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 1, delay: 0.2, ease: [0.77, 0, 0.175, 1] }}
+                  transition={{ duration: 1.2, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
                   className="reveal-inner"
                 >
                   Sovereignty.
@@ -61,33 +61,42 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-24 flex flex-col md:flex-row justify-between items-end gap-12">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="max-w-md text-muted font-light leading-relaxed text-lg"
+        <div className="mt-16 md:mt-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 md:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="max-w-lg"
           >
-            A multidisciplinary developer crafting high-integrity systems 
-            at the intersection of modern web architectures and decentralized protocols.
-          </motion.p>
+            <p className="text-muted font-light leading-relaxed text-lg md:text-xl mb-6 md:mb-8">
+              Crafting high-integrity systems at the intersection of 
+              <span className="text-ink"> modern web architectures</span> and 
+              <span className="text-ink"> decentralized protocols</span>.
+            </p>
+            <div className="flex gap-8 text-[10px] font-mono uppercase tracking-widest text-muted/60">
+              <span>Based in London</span>
+              <span>Available for 2026</span>
+            </div>
+          </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="group cursor-pointer"
+            transition={{ delay: 1, duration: 1 }}
+            className="group relative"
           >
-            <div className="w-32 h-32 rounded-full border border-white/20 flex items-center justify-center group-hover:border-accent transition-colors duration-500">
-              <ArrowDownRight className="w-8 h-8 group-hover:text-accent transition-colors" />
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border border-white/5 flex items-center justify-center group-hover:border-accent/40 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
+              <div className="absolute inset-0 rounded-full bg-accent/5 scale-0 group-hover:scale-100 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+              <ArrowDownRight className="w-8 h-8 md:w-10 md:h-10 group-hover:text-accent transition-colors duration-500 relative z-10" />
             </div>
           </motion.div>
         </div>
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full border-l border-white/5 -z-10" />
-      <div className="absolute bottom-0 left-0 w-full h-1/4 border-t border-white/5 -z-10" />
+      <div className="absolute top-0 right-0 w-[40%] h-full border-l border-white/[0.03] -z-10" />
+      <div className="absolute bottom-0 left-0 w-full h-[30%] border-t border-white/[0.03] -z-10" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 blur-[120px] rounded-full -z-10 animate-pulse" />
     </section>
   );
 }

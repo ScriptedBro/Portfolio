@@ -3,59 +3,78 @@ import { ArrowRight } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 md:px-12">
-      <div className="container mx-auto">
-        <div className="max-w-4xl">
-          <p className="text-[10px] font-mono text-accent uppercase tracking-[0.3em] mb-12">Get in touch</p>
-          <h2 className="text-6xl md:text-9xl font-serif italic font-light leading-tight mb-20">
-            Let's create <br />
-            <span className="text-accent">something</span> <br />
-            exceptional.
-          </h2>
-          
-          <div className="flex flex-col md:flex-row gap-16 md:gap-32">
-            <div className="flex flex-col gap-8">
-              <div className="group cursor-pointer">
-                <p className="text-xs font-mono text-muted uppercase tracking-widest mb-2">Email</p>
-                <a href="mailto:hello@fredrick.dev" className="text-2xl font-serif italic group-hover:text-accent transition-colors">
-                  hello@fredrick.dev
+    <section id="contact" className="section-padding relative overflow-hidden">
+      <div className="container mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
+          <div className="lg:col-span-5">
+            <p className="text-[10px] font-mono text-accent uppercase tracking-[0.4em] mb-8">Get in Touch</p>
+            <h2 className="text-6xl md:text-8xl font-serif italic font-light leading-tight mb-12">
+              Let's <span className="text-accent">Build</span> the <br />
+              Future.
+            </h2>
+            <div className="space-y-12">
+              <div>
+                <p className="text-[10px] font-mono text-muted uppercase tracking-widest mb-4">Direct Communication</p>
+                <a href="mailto:fredrickloveday@gmail.com" className="text-2xl font-serif italic link-hover">
+                  fredrickloveday@gmail.com
                 </a>
               </div>
-              <div className="group cursor-pointer">
-                <p className="text-xs font-mono text-muted uppercase tracking-widest mb-2">Social</p>
-                <div className="flex gap-6">
-                  <a href="#" className="text-lg font-serif italic hover:text-accent">LinkedIn</a>
-                  <a href="#" className="text-lg font-serif italic hover:text-accent">Twitter</a>
-                  <a href="#" className="text-lg font-serif italic hover:text-accent">GitHub</a>
+              <div>
+                <p className="text-[10px] font-mono text-muted uppercase tracking-widest mb-4">Social Presence</p>
+                <div className="flex gap-8">
+                  {['Twitter', 'GitHub', 'LinkedIn'].map(social => (
+                    <a key={social} href="#" className="text-sm font-light link-hover">{social}</a>
+                  ))}
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="flex-1">
-              <form className="flex flex-col gap-12" onSubmit={(e) => e.preventDefault()}>
-                <div className="relative group">
+          <div className="lg:col-span-7">
+            <motion.form 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="glass p-12 md:p-16 rounded-[3rem] space-y-10"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="space-y-4">
+                  <label className="text-[10px] font-mono text-muted uppercase tracking-widest ml-1">Name</label>
                   <input 
                     type="text" 
-                    placeholder="Your Name" 
-                    className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-accent transition-colors font-serif italic text-2xl"
+                    placeholder="John Doe"
+                    className="w-full bg-transparent border-b border-white/10 py-4 focus:border-accent outline-none transition-colors font-light"
                   />
                 </div>
-                <div className="relative group">
+                <div className="space-y-4">
+                  <label className="text-[10px] font-mono text-muted uppercase tracking-widest ml-1">Email</label>
                   <input 
                     type="email" 
-                    placeholder="Your Email" 
-                    className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-accent transition-colors font-serif italic text-2xl"
+                    placeholder="john@example.com"
+                    className="w-full bg-transparent border-b border-white/10 py-4 focus:border-accent outline-none transition-colors font-light"
                   />
                 </div>
-                <button className="flex items-center gap-4 text-accent group w-fit">
-                  <span className="text-2xl font-serif italic group-hover:mr-4 transition-all">Send Inquiry</span>
-                  <ArrowRight className="w-6 h-6" />
-                </button>
-              </form>
-            </div>
+              </div>
+              <div className="space-y-4">
+                <label className="text-[10px] font-mono text-muted uppercase tracking-widest ml-1">Message</label>
+                <textarea 
+                  rows={4} 
+                  placeholder="Tell me about your project..."
+                  className="w-full bg-transparent border-b border-white/10 py-4 focus:border-accent outline-none transition-colors font-light resize-none"
+                />
+              </div>
+              <button className="group flex items-center gap-6 text-accent uppercase font-mono text-[10px] tracking-[0.4em] pt-4">
+                <span>Send Message</span>
+                <div className="w-12 h-[1px] bg-accent group-hover:w-20 transition-all duration-700" />
+              </button>
+            </motion.form>
           </div>
         </div>
       </div>
+
+      {/* Decorative */}
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent/5 blur-[120px] rounded-full -z-10" />
     </section>
   );
 }
